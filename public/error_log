@@ -1,0 +1,6 @@
+[02-Jan-2023 12:24:33 UTC] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[02-Jan-2023 12:24:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/bdcourts/lst.bdcourts.xyz/vendor/composer/platform_check.php on line 24
+[02-Jan-2023 12:30:39 UTC] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[02-Jan-2023 12:30:39 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/bdcourts/lst.bdcourts.xyz/vendor/composer/platform_check.php on line 24
+[02-Jan-2023 12:30:42 UTC] PHP Warning:  Module 'imagick' already loaded in Unknown on line 0
+[02-Jan-2023 12:30:42 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.1.0". You are running 7.4.33. in /home/bdcourts/lst.bdcourts.xyz/vendor/composer/platform_check.php on line 24
