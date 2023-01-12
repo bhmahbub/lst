@@ -130,7 +130,7 @@ class CasesController extends Controller
         if ($save1) {
 
             $data = new data();
-            $data->case_id = $insertedId;
+            $data->cases_id = $insertedId;
             $data->c_date = $filing_date;
             $data->c_for = 'First filing';
             $data->n_date = $n_date;
