@@ -57,10 +57,15 @@
 </div>
 </div>
 
-@if(session('status')) 
+@if (session('status'))
 <div class="alert alert-success" id="success-alert">
-  <button type="button" class="close" data-dismiss="alert">x</button>
-  <strong>{{ session('status') }}</strong>
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>{{ session('status') }}</strong>
+</div>
+@elseif (session('message'))
+<div class="alert alert-warning" id="warning-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>{{ session('message') }}</strong>
 </div>
 @endif
 
@@ -71,7 +76,7 @@
 
         <div class="card">
                     <div class="card-header">
-   
+
                         <div class="col-md-12 mb-0"><h6 class="mb-0"><b>সর্বশেষ সংযুক্ত মামলা সমূহ</b></h6>
                         </div>
 

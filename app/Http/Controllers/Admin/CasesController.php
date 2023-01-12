@@ -111,9 +111,10 @@ class CasesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+public function store(Request $request)
     {
         $request->validate([]);
+
 
         $cases = new cases();
         $num = $cases->num = bn2enNumber($request['num']);
@@ -123,29 +124,29 @@ class CasesController extends Controller
         $n_date =  $cases->n_date = date('Y-m-d', strtotime(str_replace("/", "-", bn2enNumber($request['n_date']))));
         $n_for = $cases->n_for = $request['n_for'];
 
-        $save1 = $cases->save();
+        $check = DB::table('cases')->where('caseno', '=', $caseno)->get();
 
-        $insertedId = $cases->id;
+        if (count($check) == 0) {
 
-        if ($save1) {
+            $save1 = $cases->save();
 
-            $data = new data();
-            $data->cases_id = $insertedId;
-            $data->c_date = $filing_date;
-            $data->c_for = 'First filing';
-            $data->n_date = $n_date;
-            $data->n_for = $n_for;
+            $insertedId = $cases->id;
 
-            $save2 = $data->save();
+            if ($save1) {
+                $data = new data();
+                $data->cases_id = $insertedId;
+                $data->c_date = $filing_date;
+                $data->c_for = 'First filing';
+                $data->n_date = $n_date;
+                $data->n_for = $n_for;
+
+                $save2 = $data->save();
+            }
+            return redirect()->back()->with('status', 'সফলভাবে যুক্ত হয়েছে!');
+            // dd($request->all());
+        } else {
+            return redirect()->back()->with('message', 'এই মামলা পূর্বে যুক্ত হয়েছে!');
         }
-
-
-        return redirect()->back()->with('status', 'সফলভাবে যুক্ত হয়েছে!');
-
-
-
-
-        // dd($request->all());
     }
 
     /**
