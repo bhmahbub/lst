@@ -288,6 +288,7 @@
                 <th class="">ক্রমিক নং</th>
                 <th class="">মামলার নম্বর</th>
                 <th class="">কার্যক্রম</th>
+                <th class="">মন্তব্য</th>
                 <!-- <th class="">পরবর্তী তারিখ</th>
                 <th class="">সংক্ষিপ্ত আদেশ</th> -->
               </thead>
@@ -297,14 +298,23 @@
                <tr class="">
                   <td>{{ en2bnNumber($i+1) }}</td>
                   <td>{{ en2bnNumber($dt->caseno) }}</td>
-                  <td>{{ $dt->c_for }}</td>
+                  <td>{{ en2bn($dt->c_for) }}</td>
+                  <td>{{ en2bnNumber($dt->remark) }}</td>
                 </tr>
 
             @endforeach
 
 
+@php
+function en2bn($number){
+    $search_array = array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "&","LST", "Admission hearing", "SR","Step for died party", "Step","WS", "Issue Frame", "FPH","PH", "Petition", "Arguement", "Judgement", "Necessary Paper Submission", "Ex-parte", "Hearing on Legal Ground", "Hearing", "hearing", "Order", "Question", "Compromise", "January","February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "Under Trial","Further");
+    $replace_array = array("১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "০", "ও","এলএসটি", "রক্ষণীয়তা শুনানী","সমন ফেরত","মৃত ব্যক্তির প্রতিকার","প্রতিকার",  "জবাব দাখিল", "ইস্যু গঠন", "পরবর্তী চুড়ান্ত শুনানী", "চুড়ান্ত শুনানী", "দরখাস্ত", "যুক্তিতর্ক", "রায় প্রচার", "প্রয়োজনীয় কাগজাত দাখিল", "একতরফা","আইনগত শুনানী", "শুনানী", "শুনানী", "আদেশ", "প্রশ্নোত্তর দাখিল", "সোলেনামা সংক্রান্ত", "জানুয়ারি","ফেব্রুয়ারী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর", "বিচারাধীন", "পরবর্তী");
 
+      $bn_number = str_replace($search_array, $replace_array, $number);
 
+      return $bn_number;
+    }
+@endphp
               </tbody>
 
             </table>
